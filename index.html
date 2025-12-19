@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Stockage personnel sécurisé</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-box">
+  <h2>Connexion</h2>
+  <input type="text" id="username" placeholder="Nom d'utilisateur">
+  <input type="password" id="password" placeholder="Mot de passe">
+  <button onclick="login()">Se connecter</button>
+  <p id="error"></p>
+</div>
+
+<!-- ESPACE PRIVÉ -->
+<div id="app" class="hidden">
+  <h2>Mes données privées</h2>
+  <textarea id="data" placeholder="Écris ici tes données importantes..."></textarea>
+  <br>
+  <button onclick="saveData()">Enregistrer</button>
+  <button onclick="logout()">Déconnexion</button>
+  <p id="status"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
