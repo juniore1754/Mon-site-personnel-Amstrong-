@@ -2,30 +2,34 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Stockage personnel sécurisé</title>
+  <title>Mini Word en ligne</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- LOGIN -->
-<div id="login-box">
-  <h2>Connexion</h2>
-  <input type="text" id="username" placeholder="Nom d'utilisateur">
-  <input type="password" id="password" placeholder="Mot de passe">
-  <button onclick="login()">Se connecter</button>
-  <p id="error"></p>
+<header>
+  <h1>📝 Mon Word en ligne</h1>
+</header>
+
+<!-- BARRE D’OUTILS -->
+<div class="toolbar">
+  <button onclick="cmd('bold')"><b>B</b></button>
+  <button onclick="cmd('italic')"><i>I</i></button>
+  <button onclick="cmd('underline')"><u>U</u></button>
+  <button onclick="cmd('insertUnorderedList')">• Liste</button>
+  <button onclick="cmd('formatBlock','h1')">H1</button>
+  <button onclick="cmd('formatBlock','h2')">H2</button>
+  <button onclick="save()">💾 Enregistrer</button>
+  <button onclick="clearDoc()">🗑️ Effacer</button>
 </div>
 
-<!-- ESPACE PRIVÉ -->
-<div id="app" class="hidden">
-  <h2>Mes données privées</h2>
-  <textarea id="data" placeholder="Écris ici tes données importantes..."></textarea>
-  <br>
-  <button onclick="saveData()">Enregistrer</button>
-  <button onclick="logout()">Déconnexion</button>
-  <p id="status"></p>
+<!-- ZONE DE TEXTE -->
+<div id="editor" contenteditable="true">
+  Écris ton texte ici comme dans Word...
 </div>
+
+<p id="status"></p>
 
 <script src="script.js"></script>
 </body>
