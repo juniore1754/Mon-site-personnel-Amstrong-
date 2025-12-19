@@ -1,46 +1,49 @@
-const USERNAME = "juniore1";
-const PASSWORD = "juniorBG23";
-
-// Vérifier si déjà connecté
-if (localStorage.getItem("connected") === "true") {
-  showApp();
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
 }
 
-// Connexion
-function login() {
-  const user = document.getElementById("username").value;
-  const pass = document.getElementById("password").value;
-  const error = document.getElementById("error");
-
-  if (user === USERNAME && pass === PASSWORD) {
-    localStorage.setItem("connected", "true");
-    showApp();
-  } else {
-    error.textContent = "Identifiants incorrects";
-  }
+header {
+  background: #2563eb;
+  color: white;
+  padding: 15px;
+  text-align: center;
 }
 
-// Afficher l'espace privé
-function showApp() {
-  document.getElementById("login-box").style.display = "none";
-  document.getElementById("app").classList.remove("hidden");
-
-  // Charger données sauvegardées
-  const savedData = localStorage.getItem("privateData");
-  if (savedData) {
-    document.getElementById("data").value = savedData;
-  }
+.toolbar {
+  background: #e5e7eb;
+  padding: 10px;
+  text-align: center;
 }
 
-// Sauvegarder les données
-function saveData() {
-  const text = document.getElementById("data").value;
-  localStorage.setItem("privateData", text);
-  document.getElementById("status").textContent = "Données enregistrées ✔";
+.toolbar button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
-// Déconnexion
-function logout() {
-  localStorage.removeItem("connected");
-  location.reload();
+.toolbar button:hover {
+  background: #dbeafe;
+}
+
+#editor {
+  background: white;
+  margin: 20px auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 800px;
+  min-height: 400px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+#status {
+  text-align: center;
+  color: green;
+  font-weight: bold;
 }
